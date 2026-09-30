@@ -1,7 +1,7 @@
 import customtkinter as ctk
 from tkinter import ttk
 
-class BukuView(ctk.CTk):
+class AnggotaView(ctk.CTk):
     def __init__(self):
         super().__init__()
         self.title("Sistem Manajemen Perpustakaan")
@@ -13,35 +13,29 @@ class BukuView(ctk.CTk):
         self.grid_rowconfigure(0, weight=1)
 
         # =====================================
-        # FRAME KIRI: FORMULIR INPUT BUKU
+        # FRAME KIRI: FORMULIR INPUT IDENTITAS ANGGOTA
         # =====================================
         self.frame_kiri = ctk.CTkFrame(self)
         self.frame_kiri.grid(row=0, column=0, padx=10, pady=10, sticky="nsew")
 
         ctk.CTkLabel(
             self.frame_kiri,
-            text="Form Data Buku",
+            text="Form Data Anggota",
             font=("Arial", 16, "bold")
         ).pack(pady=15)
 
         # Komponen Input
         self.entry_judul = ctk.CTkEntry(
             self.frame_kiri,
-            placeholder_text="Masukkan Judul Buku"
+            placeholder_text="Masukkan Nama"
         )
         self.entry_judul.pack(pady=10, padx=15, fill="x")
 
         self.entry_penulis = ctk.CTkEntry(
             self.frame_kiri,
-            placeholder_text="Masukkan Nama Penulis"
+            placeholder_text="Masukkan Alamat"
         )
         self.entry_penulis.pack(pady=10, padx=15, fill="x")
-
-        self.entry_tahun = ctk.CTkEntry(
-            self.frame_kiri,
-            placeholder_text="Tahun Terbit (Misal: 2024)"
-        )
-        self.entry_tahun.pack(pady=10, padx=15, fill="x")
 
         # Tombol Aksi
         self.btn_simpan = ctk.CTkButton(
@@ -89,19 +83,19 @@ class BukuView(ctk.CTk):
         )
 
         # =====================================
-        # FRAME KANAN: TABEL DAFTAR BUKU
+        # FRAME KANAN: TABEL DAFTAR ANGGOTA
         # =====================================
         self.frame_kanan = ctk.CTkFrame(self)
         self.frame_kanan.grid(row=0, column=1, padx=10, pady=10, sticky="nsew")
 
         ctk.CTkLabel(
             self.frame_kanan,
-            text="Daftar Koleksi Buku",
+            text="Daftar Anggota",
             font=("Arial", 16, "bold")
         ).pack(pady=15)
 
         # Komponen Tabel (Treeview dari tkinter standar)
-        kolom = ("id", "judul", "penulis", "tahun")
+        kolom = ("Nama", "Alamat")
         self.tabel = ttk.Treeview(
             self.frame_kanan,
             columns=kolom,
@@ -110,20 +104,16 @@ class BukuView(ctk.CTk):
         )
 
         # Konfigurasi Header Tabel
-        self.tabel.heading("id", text="ID")
-        self.tabel.heading("judul", text="Judul Buku")
-        self.tabel.heading("penulis", text="Penulis")
-        self.tabel.heading("tahun", text="Tahun")
+        self.tabel.heading("Nama", text="Nama")
+        self.tabel.heading("Alamat", text="Alamat")
 
         # Konfigurasi Lebar Kolom
-        self.tabel.column("id", width=40, anchor="center")
-        self.tabel.column("judul", width=150)
-        self.tabel.column("penulis", width=120)
-        self.tabel.column("tahun", width=80, anchor="center")
+        self.tabel.column("Nama", width=80, anchor="center")
+        self.tabel.column("Alamat", width=150)
 
         self.tabel.pack(fill="both", expand=True, padx=15, pady=10)
 
 # Blok eksekusi untuk menguji tampilan grafis
 if __name__ == "__main__":
-    app = BukuView()
+    app = AnggotaView()
     app.mainloop()
