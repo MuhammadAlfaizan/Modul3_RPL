@@ -1,3 +1,4 @@
+#Muhammad Alfaizan Rifatullah_F5212520036
 import customtkinter as ctk
 from tkinter import ttk
 
@@ -88,6 +89,7 @@ class BukuView(ctk.CTk):
             expand=True
         )
 
+        #Muhammad Alfaizan Rifatullah_F5212520036
         # =====================================
         # FRAME KANAN: TABEL DAFTAR BUKU
         # =====================================
@@ -127,3 +129,5 @@ class BukuView(ctk.CTk):
 if __name__ == "__main__":
     app = BukuView()
     app.mainloop()
+
+

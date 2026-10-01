@@ -1,3 +1,4 @@
+#Muhammad Alfaizan_F5212520036
 import mysql.connector
 from mysql.connector import Error
 
@@ -24,3 +25,5 @@ class Database:
         except Error as e:
             print(f"Koneksi Gagal: {e}")
             return None
+
+
